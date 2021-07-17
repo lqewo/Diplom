@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Diplom.Mobile.Views.NewsPage"
+             Title="Новости">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout Spacing="8" Grid.Column="0" Grid.Row="0">
+            <Label Text="В новостной ленте вы можите увидеть все, что происходило в кафе за последнее время." HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="#A4A4A4" />
+            <!--<Label Text="это новости тут можно" HorizontalOptions="Center" Style="{StaticResource labeleStyle}"/>-->
+            <!--<Button Clicked="Button_Clicked" />-->
+        </StackLayout>
+
+        <StackLayout Grid.Column="0" Grid.Row="1">
+            <StackLayout>
+                <ListView x:Name="newsList"
+                          HasUnevenRows="True"
+                          CachingStrategy="RecycleElement"
+                          ItemsSource="{Binding ContentList}"
+                          IsPullToRefreshEnabled="True"
+                          RefreshCommand="{Binding RefreshCommand}"
+                          IsRefreshing="{Binding IsRefreshing}"
+                          SelectionMode="None"
+                          ItemAppearing="NewsList_ItemAppearing"
+                          Margin="10,0,10,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Vertical">
+                                        <Image Source="{Binding Img}" Aspect="AspectFit" HeightRequest="200" />
+                                        <StackLayout>
+                                            <Label Text="{Binding Name}" FontSize="27" Style="{StaticResource labelNameBold}"  />
+                                            <Label Text="{Binding Text}" FontSize="17" Style="{StaticResource labelTextDescription}" />
+                                            <Label Text="{Binding Date}" FontSize="9" HorizontalOptions="End" Style="{StaticResource Data}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileWorker.Views.RegistrationPage"
+              Title="Добавление работника">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Spacing="8" Orientation="Horizontal" Grid.Column="0" Grid.Row="0"
+                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="Заполните поля для регистрации нового работника" Style="{StaticResource labelTextDescription}"/>
+        </StackLayout>
+        <ScrollView Grid.Column="0" Grid.Row="1" Margin="0,20,0,0">
+            <StackLayout Grid.Column="0" Grid.Row="1" Margin="20">
+                <Entry x:Name="firstNameEntry" Placeholder="Имя" MaxLength="25" />
+                <Entry x:Name="lastNameEntry" Placeholder="Фамилия" MaxLength="25" />
+                <Entry x:Name="emailEntry" Placeholder="Email" MaxLength="30" Keyboard="Email" />
+                <Entry x:Name="telefonEntry" Placeholder="Телефон" MaxLength="11" Keyboard="Telephone"/>
+                <Entry x:Name="yearsEntry" Placeholder="Возраст" MaxLength="3" Keyboard="Numeric" />
+                <Entry x:Name="loginEntry" Placeholder="Логин" MaxLength="25" />
+                <Entry x:Name="passwordEntry" Placeholder="Пароль" IsPassword="True" MaxLength="30" />
+
+                <Picker x:Name="picker" MinimumWidthRequest="50" WidthRequest="51">
+                    <Picker.Items>
+                        <x:String>Мужской</x:String>
+                        <x:String>Женский</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Label Text="Выберите роль нового пользователя" Style="{StaticResource labelTextDescription}" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Picker x:Name="pickerRol" MinimumWidthRequest="50" WidthRequest="51">
+                    <Picker.Items>
+                        <x:String>Директор</x:String>
+                        <x:String>Работник</x:String>
+                    </Picker.Items>
+                </Picker>
+                <!--FontSize="Large"-->
+                <Button Text="Добавить" Clicked="Button_Clicked" Style="{StaticResource ButtonShop}"  Margin="10"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

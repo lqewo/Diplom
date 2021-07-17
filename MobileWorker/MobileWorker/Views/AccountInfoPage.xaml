@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.AccountInfoPage"
+             Title="Аккаунт">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Column="0" Grid.Row="0" Margin="10">
+            <Label Text="На данной странице вы можете изменить ваши данные в системе" Margin="10" 
+                   Style="{StaticResource labelTextDescription}" HorizontalTextAlignment="Center" />
+        </StackLayout>
+
+        <ScrollView Grid.Column="0" Grid.Row="1" Margin="0,10,0,0">
+            <StackLayout Grid.Column="0" Grid.Row="1" Margin="20">
+
+                <Label Text="Ваше логин" Margin="0, 5, 0, 0" Style="{StaticResource labelName}"/>
+                <Entry x:Name="loginEntry" MaxLength="25" />
+
+                <Label Text="Ваше имя" Margin="0, 5, 0, 0" Style="{StaticResource labelName}" />
+                <Entry x:Name="firstNameEntry" MaxLength="30" />
+
+                <Label Text="Ваша фамилия" Margin="0, 5, 0, 0" Style="{StaticResource labelName}" />
+                <Entry x:Name="lastNameEntry" MaxLength="30" />
+
+                <Label Text="Ваш возраст" Margin="0, 5, 0, 0" Style="{StaticResource labelName}" />
+                <Entry x:Name="yearsEntry" MaxLength="3" Keyboard="Numeric"/>
+
+                <Label Text="Ваш пол" Margin="0, 5, 0, 0" Style="{StaticResource labelName}" />
+                <Picker x:Name="picker" MinimumWidthRequest="50" WidthRequest="51">
+                    <Picker.Items>
+                        <x:String>Мужской</x:String>
+                        <x:String>Женский</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Ваш Email" Margin="0, 5, 0, 0" Style="{StaticResource labelName}" />
+                <Entry x:Name="emailEntry" MaxLength="35" Keyboard="Email" />
+
+                <Label Text="Ваш телефон" Margin="0, 5, 0, 0" Style="{StaticResource labelName}" />
+                <Entry x:Name="telefonEntry" Placeholder="Телефон" MaxLength="11" Keyboard="Telephone"/>
+
+                <Button Text="Изменить данные" Clicked="Button_Clicked" Style="{StaticResource ButtonShop}" Margin="5,10,5,0" />
+                <Button Text="Изменить пароль" Clicked="Button_Clicked_1" Style="{StaticResource ButtonShop}" Margin="5"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

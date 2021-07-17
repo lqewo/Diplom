@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.ProductAdditionAddPage"
+             Title="Добавление порций">
+    <!--public string Grams { get; set; } // количество грамм в порции
+        public string Calories { get; set; } //калории в порции
+        public string Price { get; set; } // цена порции
+        public int ProductId { get; set; } // ИД продукта-->
+    <StackLayout Margin="10">
+        <Label Text="Цена продукта"  Style="{StaticResource labelName}"/>
+        <Entry x:Name="price" Keyboard="Numeric"  TextColor="#787878" FontAttributes="Bold"/>
+
+        <Label Text="Кол-во грамм в продукте(вес)"  Style="{StaticResource labelName}"/>
+        <Entry x:Name="gram" Keyboard="Numeric"  TextColor="#787878" FontAttributes="Bold"/>
+
+        <Label Text="Калорийность продукта"  Style="{StaticResource labelName}"/>
+        <Entry x:Name="kalor" Keyboard="Numeric"  TextColor="#787878" FontAttributes="Bold"/>
+
+
+        <StackLayout Margin="10">
+            <Button Text="Добавить новую порцию продукта" Clicked="Button_Clicked_1"/>
+            <Button Text="Добавить новый продукт" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

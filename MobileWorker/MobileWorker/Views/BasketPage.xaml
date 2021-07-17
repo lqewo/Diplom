@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.BasketPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Column="0" Grid.Row="0" Margin="20">
+            <StackLayout>
+                <ListView x:Name="basketList"
+                          HasUnevenRows="False"
+                          ItemsSource="{Binding BasketList}"
+                          RowHeight="165"
+                          ItemTapped="BasketList_ItemTapped"
+                          ItemSelected="BasketList_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <!--<MenuItem Clicked="OnMore"
+                                          CommandParameter="{Binding .}"
+                                          Text="More" />-->
+                                    <MenuItem Clicked="OnDelete"
+                                              CommandParameter="{Binding .}"
+                                              Text="Delete" IsDestructive="True" />
+                                </ViewCell.ContextActions>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Img}" WidthRequest="90" HeightRequest="110" />
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="{Binding Name}" FontSize="27" Style="{StaticResource labelName}"/>
+                                            <Label Text="{Binding Price, StringFormat=' {0} Руб./Шт.'}"
+                                                   FontSize="17" Style="{StaticResource labelTextDescription}" />
+
+                                            <!--<Label Text="{Binding ShortDescription}" FontSize="17" />-->
+                                            <!--<Button Text="Удалить" />-->
+
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                                <Button Text="-" Command="{Binding QuantityMinusCommand}"
+                                                        CommandParameter="{Binding BasketList}"
+                                                        Clicked="Button_Clicked_2" FontAttributes="Bold" />
+                                                <Label Text="{Binding Quantity}" FontSize="30" VerticalOptions="End"
+                                                       HorizontalOptions="Center" Style="{StaticResource labelName}" />
+                                                <Button Text="+" CommandParameter="{Binding BasketList}"
+                                                        Clicked="Button_Clicked_1" FontAttributes="Bold" />
+                                                <!--Command="{Binding QuantityPlusCommand}"-->
+                                                <!--<Stepper Minimum="0" Maximum="10" Increment="1" Value="{Binding Quantity}" ValueChanged="Stepper_ValueChanged" VerticalOptions="End" HorizontalOptions="Center"/>-->
+                                                <!--<Button Text="отчистить" Clicked="Button_Clicked"/>-->
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Spacing="8" Grid.Column="0" Grid.Row="1">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Общая цена заказа:" FontSize="23" Style="{StaticResource labelTextDescription}" />
+                <Label x:Name="cena" Text="{Binding AllPrice}" FontSize="23" Style="{StaticResource labelName}" />
+                <Label Text="Руб." FontSize="23" Style="{StaticResource labelTextDescription}" />
+            </StackLayout>
+            <Button Text="Оформить заказ" Clicked="Button_Clicked_3" Style="{StaticResource ButtonShop}" Margin="5" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

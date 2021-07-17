@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.ReviewsPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout Spacing="8" Grid.Column="0" Grid.Row="0">
+            <Label Font="24" Text="Введите свой отзыв" TextColor="#A4A4A4" HorizontalTextAlignment="Center"/>
+            <Editor x:Name="reviewEntry" BackgroundColor="#EBEBEB" HeightRequest="50" />
+
+            <Label Text="Поставьте оценку заведению от 1 до 5" HorizontalOptions="Center"  TextColor="#A4A4A4"/>
+
+            <Picker x:Name="picker" Margin="100,0,100,0" MinimumWidthRequest="50" WidthRequest="51" SelectedIndex="3">
+                <Picker.Items>
+                    <x:String>1</x:String>
+                    <x:String>2</x:String>
+                    <x:String>3</x:String>
+                    <x:String>4</x:String>
+                    <x:String>5</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Text="Отправить" Clicked="Button_Clicked" Margin="5,0,5,5" Style="{StaticResource ButtonShop}" />
+        </StackLayout>
+
+        <StackLayout Grid.Column="0" Grid.Row="1" Margin="20">
+            <StackLayout>
+                <ListView x:Name="reviewList"
+                          HasUnevenRows="True"
+                          CachingStrategy="RecycleElement"
+                          ItemsSource="{Binding ReviewsList}"
+                          ItemTapped="OnItemTapped"
+                          IsPullToRefreshEnabled="True"
+                          RefreshCommand="{Binding RefreshCommand}"
+                          IsRefreshing="{Binding IsRefreshing}"
+                          SelectionMode="None"
+                          ItemAppearing="ReviewList_ItemAppearing">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Label Text="{Binding Text}" FontSize="18" Style="{StaticResource labelName}" />
+                                        <Label Text="{Binding Rating, StringFormat='Оценка заведению: {0}/5'}"  Style="{StaticResource labelTextDescription}"/>
+                                        <Label Text="{Binding FirstName}" HorizontalOptions="End"
+                                               HorizontalTextAlignment="End"  Style="{StaticResource labelTextDescription}"/>
+                                        <Label Text="{Binding Date}" FontSize="11" HorizontalOptions="End"
+                                               HorizontalTextAlignment="End" Style="{StaticResource Data}" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

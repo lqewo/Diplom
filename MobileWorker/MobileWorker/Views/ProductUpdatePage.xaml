@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.ProductUpdatePage"
+             Title="Изменение продукта">
+
+
+    <ScrollView >
+        <StackLayout Spacing="8" Grid.Column="0" Grid.Row="0" Margin="5">
+            
+            <Label Text="Название продукта"  Style="{StaticResource labelName}"/>
+            <Entry x:Name="name" TextColor="#787878" FontAttributes="Bold"/>
+
+            <Label Text="Короткое описание"  Style="{StaticResource labelName}" />
+            <Editor x:Name="shortDiscription" BackgroundColor="#E5E3DE" HeightRequest="100" TextColor="#787878" MaxLength="90" />
+
+            <Label Text="Длинное описание"  Style="{StaticResource labelName}" />
+            <Editor x:Name="longDiscription" BackgroundColor="#E5E3DE" HeightRequest="100" TextColor="#787878" MaxLength="200" />
+
+            <Label Text="Загрузить новое изображение" Style="{StaticResource labelName}" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Button Text="выбрать" Clicked="Button_Clicked" Margin="50,5,50,5" Style="{StaticResource ButtonShop}" />
+            <Label x:Name="text" Text="Изображение не выбрано" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+
+            <StackLayout >
+                <Button Text="Обновить запись" Clicked="Button_Clicked_2" Margin="50,5,50,5"  Style="{StaticResource ButtonShop}"/>
+            </StackLayout>
+            
+            <StackLayout Margin="10">
+                <Button Text="Изменение порций" Clicked="Button_Clicked_1"  Margin="5, 5, 5, 0" Style="{StaticResource ButtonShop}"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

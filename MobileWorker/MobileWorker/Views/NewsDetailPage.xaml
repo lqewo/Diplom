@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.NewsDetailPage"
+             Title="Детали новости">
+        
+    <StackLayout Margin="10">
+        <Label Text="Введите название/тему новости" Style="{StaticResource labelName}"/>
+        <Entry x:Name="name" Placeholder="Название" MaxLength="40" />
+
+        <Label Text="Введите содержание новости" Style="{StaticResource labelName}" />
+        <Editor x:Name="textEntry" BackgroundColor="#EBEBEB" HeightRequest="150" />
+
+        <StackLayout Margin="10">
+            <Label Text="Загрузите изображение для новости" Style="{StaticResource labelName}" />
+            
+            <!-- как то загрузить изображение -->
+            <Button Text="выбрать" Clicked="Button_Clicked_1" Margin="5" Style="{StaticResource ButtonShop}" />
+            <Label x:Name="text" Text="Изображение не выбрано"/>
+
+             <StackLayout Margin="10">
+                <Button Text="Добавить новость" Clicked="Button_Clicked" Margin="5" Style="{StaticResource ButtonShop}" />
+             </StackLayout>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

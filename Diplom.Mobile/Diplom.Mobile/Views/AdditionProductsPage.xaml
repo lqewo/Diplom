@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Diplom.Mobile.Views.AdditionProductsPage"
+              Title="Описание продукта">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout Spacing="8" Grid.Column="0" Grid.Row="0">
+            <Image x:Name="image1"  HeightRequest="190"   HorizontalOptions="Center" />
+        </StackLayout>
+
+        <ScrollView Grid.Column="0" Grid.Row="1">
+            <StackLayout Spacing="8" Grid.Column="0" Grid.Row="1">
+                <Label x:Name="nameProd" FontSize="34" Style="{StaticResource labelNameBold}" />
+                <Label x:Name="LongDescription" FontSize="16"  Style="{StaticResource labelTextDescription}"/>
+            </StackLayout>
+        </ScrollView>
+
+        <StackLayout Grid.Column="0" Grid.Row="2">
+            <StackLayout>
+                <ListView x:Name="additionList"
+                          HasUnevenRows="False"
+                          RowHeight="90"
+                          ItemsSource="{Binding Producted}"
+                          Margin="10,0,10,0"
+                          ItemTapped="AdditionList_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="{Binding Grams, StringFormat=' {0} Грамм'}" FontSize="14" Style="{StaticResource labelName}" />
+                                        <Label Text="{Binding Calories, StringFormat=' {0} Ккал.'}" FontSize="14" Style="{StaticResource labelName}" />
+                                        <Label Text="{Binding Price, StringFormat=' {0} Рублей'}" FontSize="14" Style="{StaticResource labelNameBold}" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

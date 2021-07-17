@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.ProductAddPage"
+             Title="Добаление продукта">
+    <ScrollView>
+        <StackLayout Margin="10">
+            <Label Text="Вид продукта"  Style="{StaticResource labelName}" />
+            <Picker x:Name="picker" MinimumWidthRequest="50" WidthRequest="51" TextColor="#787878" FontAttributes="Bold">
+                <Picker.Items>
+                    <x:String>Еда</x:String>
+                    <x:String>Напитки</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Название продукта"  Style="{StaticResource labelName}"/>
+            <Entry x:Name="name" TextColor="#787878" FontAttributes="Bold"/>
+
+            <Label Text="Короткое описание"  Style="{StaticResource labelName}" />
+            <Editor x:Name="shortDiscription" BackgroundColor="#E5E3DE" HeightRequest="100" TextColor="#787878" MaxLength="90" />
+
+            <Label Text="Длинное описание"  Style="{StaticResource labelName}" />
+            <Editor x:Name="longDiscription" BackgroundColor="#E5E3DE" HeightRequest="100" TextColor="#787878" MaxLength="200" />
+
+            <Label Text="Загрузите изображение для продукта" Style="{StaticResource labelName}" />
+            <Button Text="выбрать" Clicked="Button_Clicked" Margin="5" Style="{StaticResource ButtonShop}" />
+            <Label x:Name="text" Text="Изображение не выбрано"/>
+
+
+            <StackLayout Margin="10">
+                <Button Text="Продолжить" Clicked="Button_Clicked_1"  Margin="5, 5, 5, 0" Style="{StaticResource ButtonShop}"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.StatisticsPage"
+             Title="Статистика приложения">
+    <!--public string populerEatMount { get; set; } // самое популярное блюдо за месяц
+        public string populerEatYear { get; set; } // самое популярное блюдо за год
+
+        public int revenueMount { get; set; } // доход за месяц
+        public int revenueYear { get; set; } // доход за год
+
+        public int averageCheck { get; set; } // средний чек заказа
+
+        public int averageYear { get; set; } // средний возраст покупателя
+        public int countSexFemale { get; set; } // кол-во женьщин покупателей за месяц
+        public int countSexMale { get; set; } // кол-во мужчинпокупателей за месяц
+
+        public int userCount { get; set; } // общее кол-во пользователей-->
+
+
+    <ScrollView>
+        <StackLayout Margin="10" Orientation="Vertical">
+            <Label x:Name="populerEatMount" Text="" FontSize="18" Style="{StaticResource labelTextDescription}"  />
+            <Label x:Name="populerEatYear" Text="" FontSize="18" Style="{StaticResource labelTextDescription}" />
+
+            <Label/>
+
+            <Label x:Name="revenueMount" Text="" FontSize="18" Style="{StaticResource labelTextDescription}" />
+            <Label x:Name="revenueYear" Text="" FontSize="18" Style="{StaticResource labelTextDescription}" />
+
+            <Label/>
+            
+            <Label x:Name="averageCheck" Text="" FontSize="18" Style="{StaticResource labelTextDescription}" />
+
+            <Label x:Name="averageYear" Text="" FontSize="18" Style="{StaticResource labelTextDescription}" />
+            <Label x:Name="countSexFemale" Text="" FontSize="18" Style="{StaticResource labelTextDescription}" />
+
+            <StackLayout Orientation="Horizontal">
+            <Label  Text="Кол-во покупателей за месяц мужского пола:" FontSize="18" Style="{StaticResource labelTextDescription}" />
+                <Label x:Name="countSexMale" Text="" FontSize="18" Style="{StaticResource labelTextDescription}" />
+            </StackLayout>
+
+            <Label/>
+            
+            <Label x:Name="userCount" Text="" FontSize="18" Style="{StaticResource labelTextDescription}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

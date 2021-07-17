@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.OrderDetailPage"
+              Title="Информация о заказе">
+    <ScrollView>
+        <StackLayout Margin="10">
+            <Label Text="Дата приготовления"  Style="{StaticResource labelName}"/>
+            <DatePicker x:Name="datePicker" Format="D"  IsEnabled="False" TextColor="#787878" FontAttributes="Bold"/>
+
+            <Label Text="Время приготовления"  Style="{StaticResource labelName}" />
+            <TimePicker x:Name="timePicker" Format="HH:mm" IsEnabled="False" TextColor="#787878" FontAttributes="Bold"/>
+
+            <StackLayout Margin="10">
+                <Label Text="Коментарий к заказу"  Style="{StaticResource labelName}" />
+                <Editor x:Name="reviewEntry" BackgroundColor="#E5E3DE" HeightRequest="100" IsEnabled="False" TextColor="#787878" FontAttributes="Bold" />
+
+                <StackLayout Margin="10">
+                    <Label Text="Тип оплаты"  Style="{StaticResource labelName}" />
+                    <Picker x:Name="picker" MinimumWidthRequest="50" WidthRequest="51" IsEnabled="False" TextColor="#787878" FontAttributes="Bold">
+                        <Picker.Items>
+                            <x:String>Наличными</x:String>
+                            <x:String>Картой</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                        <Label Text="Цена заказа"  Style="{StaticResource labelName}" />
+                        <Entry x:Name="prise" IsEnabled="False" TextColor="#787878" FontAttributes="Bold"/>
+
+                        <Label Text="Email клиента"  Style="{StaticResource labelName}" />
+                        <Entry x:Name="email" TextColor="#787878" FontAttributes="Bold"/>
+
+                        <Label Text="Телефон клиента"  Style="{StaticResource labelName}" />
+                        <Entry x:Name="telefone" TextColor="#787878" FontAttributes="Bold"/>
+
+                        <StackLayout Margin="10">
+                        <Label Text="Статус заказа"  Style="{StaticResource labelName}" />
+                        <Picker x:Name="pickerStatus" MinimumWidthRequest="50" WidthRequest="51">
+                            <Picker.Items>
+                                <x:String>Обробатывается</x:String>
+                                <x:String>Приготовлен</x:String>
+                                <x:String>Отклонен</x:String>
+                                <x:String>Принят</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <StackLayout Margin="10">
+                            <Button Text="Сохранить статус заказа" Clicked="Button_Clicked" Margin="5, 5, 5, 0" Style="{StaticResource ButtonShop}"/>
+                            <Button Text="Просмотр товаров заказа" Clicked="Button_Clicked_1" Margin="5"  Style="{StaticResource ButtonShop}" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

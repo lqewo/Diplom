@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Diplom.Mobile.Views.OrderDetailPage"
+              Title="Информация о заказе">
+    <StackLayout Margin="10">
+        <Label Text="Выберите дату приготовления"  Style="{StaticResource labelName}"/>
+        <DatePicker x:Name="datePicker" Format="D" />
+
+        <Label Text="Выберите время приготовления с 8:00 до 18:00"  Style="{StaticResource labelName}" />
+        <TimePicker x:Name="timePicker" Format="HH:mm" />
+
+        <StackLayout Margin="10">
+            <Label Text="Введите коментарий к заказу"  Style="{StaticResource labelName}" />
+            <Editor x:Name="reviewEntry" BackgroundColor="#E5E3DE" HeightRequest="100" />
+
+            <StackLayout Margin="10">
+                <Label Text="Выберите тип оплаты"  Style="{StaticResource labelName}" />
+                <Label />
+                <Picker x:Name="picker" MinimumWidthRequest="50" WidthRequest="51">
+                    <Picker.Items>
+                        <x:String>Наличными</x:String>
+                        <x:String>Карта</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <StackLayout Margin="10">
+                    <Button Text="Сохранить изменения" Clicked="Button_Clicked" Margin="5, 5, 5, 0" Style="{StaticResource ButtonShop}"/>
+                    <Button Text="Просмотр товаров заказа" Clicked="Button_Clicked_1" Margin="5"  Style="{StaticResource ButtonShop}" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

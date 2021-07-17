@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.EditAccountPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Column="0" Grid.Row="0" Margin="10">
+            <Label Text="На данной странице вы можете изменить ваши данные в системе" Margin="10" />
+        </StackLayout>
+
+        <ScrollView Grid.Column="0" Grid.Row="1" Margin="0,10,0,0">
+            <StackLayout Grid.Column="0" Grid.Row="1" Margin="20">
+
+                <Label Text="Ваше логин" Margin="0, 5, 0, 0" />
+                <Entry x:Name="loginEntry" Placeholder="Login" />
+
+                <Label Text="Ваше имя" Margin="0, 5, 0, 0" />
+                <Entry x:Name="firstNameEntry" Placeholder="Имя" />
+
+                <Label Text="Ваша фамилия" Margin="0, 5, 0, 0" />
+                <Entry x:Name="lastNameEntry" Placeholder="Фамилия" />
+
+                <Label Text="Ваш возраст" Margin="0, 5, 0, 0" />
+                <Entry x:Name="yearsEntry" Placeholder="Возраст" />
+
+                <Label Text="Ваш Email" Margin="0, 5, 0, 0" />
+                <Entry x:Name="emailEntry" Placeholder="Email" />
+
+                <Label Text="Ваш телефон" Margin="0, 5, 0, 0" />
+                <Entry x:Name="telefonEntry" Placeholder="Телефон" />
+
+                <Label Text="Ваш пароль" Margin="0, 5, 0, 0" />
+                <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" />
+
+                <Label Text="Повторите пароль" Margin="0, 5, 0, 0" />
+                <Entry x:Name="passworAgaindEntry" Placeholder="Confirm password" IsPassword="True" />
+
+                <Button Text="Изменить данные" Clicked="Button_Clicked" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

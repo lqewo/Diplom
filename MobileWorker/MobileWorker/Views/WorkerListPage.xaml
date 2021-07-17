@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.WorkerListPage"
+             Title="Список работников">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Column="0" Grid.Row="0">
+            <StackLayout>
+                <ListView x:Name="workList"
+                          HasUnevenRows="True"
+                          CachingStrategy="RecycleElement"
+                          ItemsSource="{Binding WorkerList}"
+                          IsPullToRefreshEnabled="True"
+                          RefreshCommand="{Binding RefreshCommand}"
+                          IsRefreshing="{Binding IsRefreshing}"
+                          
+                          Margin="10,0,10,0">
+                    <!--SelectionMode="None"-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="OnDelete"
+                                              CommandParameter="{Binding .}"
+                                              Text="Delete" IsDestructive="True" />
+                                </ViewCell.ContextActions>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Vertical">
+
+                                        <Label Text="{Binding LastName, StringFormat='Фамилия: {0}'}" FontSize="16" Style="{StaticResource labelNameBold}"  />
+                                        <Label Text="{Binding FirstName, StringFormat='Имя: {0}'}" FontSize="16" Style="{StaticResource labelTextDescription}" />
+                                        <Label Text="{Binding Year, StringFormat='Возраст: {0}'}" FontSize="16"  Style="{StaticResource labelTextDescription}" />
+                                        <Label Text="{Binding Email, StringFormat='Почта: {0}'}" FontSize="16"  Style="{StaticResource labelTextDescription}" />
+                                        <Label Text="{Binding PhoneNumber, StringFormat='Номер телефона: {0}'}" FontSize="16"  Style="{StaticResource labelTextDescription}" />
+                                        
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Spacing="8" Grid.Column="0" Grid.Row="1">
+            <Button Text="Добавить работника" Clicked="Button_Clicked" Style="{StaticResource ButtonShop}" Margin="5" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.AdditionProductsPage"
+              Title="Описание продукта">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--<StackLayout Spacing="8" Grid.Column="0" Grid.Row="0">
+            <Image x:Name="image1"  HeightRequest="190"   HorizontalOptions="Center" />
+        </StackLayout>-->
+
+        <ScrollView Grid.Column="0" Grid.Row="0" Margin="10">
+            <StackLayout Margin="10">
+                <Label Text="Цена продукта"  Style="{StaticResource labelName}"/>
+                <Entry x:Name="price" Keyboard="Numeric"  TextColor="#787878" FontAttributes="Bold"/>
+
+                <Label Text="Кол-во грамм в продукте(вес)"  Style="{StaticResource labelName}"/>
+                <Entry x:Name="gram" Keyboard="Numeric"  TextColor="#787878" FontAttributes="Bold"/>
+
+                <Label Text="Калорийность продукта"  Style="{StaticResource labelName}"/>
+                <Entry x:Name="kalor" Keyboard="Numeric"  TextColor="#787878" FontAttributes="Bold"/>
+
+
+                <StackLayout Margin="10">
+                    <Button Text="Сохранить изменения" Clicked="Button_Clicked" Style="{StaticResource ButtonShop}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <StackLayout Grid.Column="0" Grid.Row="1">
+            <StackLayout>
+                <ListView x:Name="additionList"
+                          HasUnevenRows="False"
+                          RowHeight="90"
+                          ItemsSource="{Binding AdditionList}"
+                          IsPullToRefreshEnabled="True"
+                          RefreshCommand="{Binding RefreshCommand}"
+                          IsRefreshing="{Binding IsRefreshing}"
+                          
+                          Margin="10,0,10,0"
+                          ItemTapped="AdditionList_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="OnDelete"
+                                              CommandParameter="{Binding}"
+                                              Text="Delete" IsDestructive="True" />
+                                </ViewCell.ContextActions>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="{Binding Grams, StringFormat=' {0} Грамм'}" FontSize="14" Style="{StaticResource labelName}" />
+                                        <Label Text="{Binding Calories, StringFormat=' {0} Ккал.'}" FontSize="14" Style="{StaticResource labelName}" />
+                                        <Label Text="{Binding Price, StringFormat=' {0} Рублей'}" FontSize="14" Style="{StaticResource labelNameBold}" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

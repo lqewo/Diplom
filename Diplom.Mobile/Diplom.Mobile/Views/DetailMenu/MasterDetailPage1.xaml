@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage
+    x:Class="Diplom.Mobile.Views.DetailMenu.MasterDetailPage1"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:user="clr-namespace:Diplom.Mobile.Views.DetailMenu;assembly=Diplom.Mobile"
+    xmlns:views="clr-namespace:Diplom.Mobile.Views;assembly=Diplom.Mobile"
+    NavigationPage.HasNavigationBar="False">
+    <MasterDetailPage.Master>
+        <user:MasterDetailPage1Master x:Name="MasterPage" />
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:NewsPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

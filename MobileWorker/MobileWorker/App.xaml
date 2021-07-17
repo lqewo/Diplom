@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="labelNameBold"  TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#787878" />
+            </Style>
+            <Style x:Key="labelName"  TargetType="Label">
+                <Setter Property="TextColor" Value="#787878" />
+            </Style>
+            <Style x:Key="labelTextDescription"  TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#A4A4A4" />
+            </Style>
+            <Style x:Key="Data"  TargetType="Label">
+                <Setter Property="FontAttributes" Value="Italic"/>
+                <Setter Property="TextColor" Value="#AFAFAF" />
+            </Style>
+            <Style x:Key="ButtonJmak"  TargetType="Button">
+                <Setter Property="BorderRadius" Value="2" />
+                <Setter Property="BorderColor" Value="#787878"/>
+                <Setter Property="BackgroundColor" Value="#C9C9C9"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="ButtonShop"  TargetType="Button">
+                <Setter Property="BorderRadius" Value="3" />
+                <Setter Property="BackgroundColor" Value="#03A9F4"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="TextColor" Value="WhiteSmoke" />
+                <!--<Setter Property="FontSize" Value="19"/>-->
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="MinimumHeightRequest" Value="10"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

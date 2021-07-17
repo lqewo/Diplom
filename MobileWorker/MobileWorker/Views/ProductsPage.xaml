@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWorker.Views.ProductsPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=" Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height=" Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Spacing="8" Grid.Column="0" Grid.Row="0">
+            <Label Font="24" Text="Выберите тип блюда" HorizontalOptions="Center" HorizontalTextAlignment="Center" Style="{StaticResource labelTextDescription}" />
+            <Picker x:Name="picker" SelectedIndexChanged="Picker_SelectedIndexChanged" SelectedIndex="0">
+                <Picker.Items>
+                    <x:String>Первые блюда</x:String>
+                    <x:String>Вторые блюда</x:String>
+                    <x:String>Салаты</x:String>
+                    <x:String>Напитки</x:String>
+                </Picker.Items>
+            </Picker>
+        </StackLayout>
+
+
+        <StackLayout Grid.Column="0" Grid.Row="1" Margin="20">
+            <StackLayout>
+                <ListView x:Name="menuList"
+                          HasUnevenRows="False"
+                          CachingStrategy="RecycleElement"
+                          ItemsSource="{Binding ProductList}"
+                          RowHeight="180"
+                          IsPullToRefreshEnabled="True"
+
+                          SelectionMode="None"
+                          ItemAppearing="ProductList_ItemAppearing"
+                          ItemTapped="MenuList_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <!--<MenuItem Clicked="OnMore"
+                                          CommandParameter="{Binding .}"
+                                          Text="More" />-->
+                                    <MenuItem Clicked="OnDelete"
+                                              CommandParameter="{Binding .}"
+                                              Text="Delete" IsDestructive="True" />
+                                </ViewCell.ContextActions>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Img}" WidthRequest="90" HeightRequest="110" />
+                                        <StackLayout Margin="4">
+                                            <Label Text="{Binding Name}" FontSize="21"  Style="{StaticResource labelNameBold}"/>
+                                            <Label Text="{Binding ShortDescription}" FontSize="17" Style="{StaticResource labelTextDescription}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Spacing="8" Grid.Column="0" Grid.Row="2">
+            <Button Text="Добавить продукт" Clicked="Button_Clicked" Style="{StaticResource ButtonShop}" Margin="5"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>
